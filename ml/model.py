@@ -1,8 +1,13 @@
+"""Model definition, training, evaluation metrics, and inference.
+
+The model is a feedforward neural network built with tf.keras. Hyperparameters
+are read from params.yaml so experiments can change them without touching code.
+"""
+
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 import tensorflow as tf
 import numpy as np
 import yaml
-from yaml import CLoader as Loader
 import os
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
@@ -22,8 +27,8 @@ def train_model(X_train, y_train):
     """
 
     # load model hyperparameters
-    with open("params.yaml", "rb") as f:
-        params = yaml.load(f, Loader=Loader)
+    with open("params.yaml", "r") as f:
+        params = yaml.safe_load(f)
         
     batch_size = params["batch_size"]
     dim = X_train.shape[1]

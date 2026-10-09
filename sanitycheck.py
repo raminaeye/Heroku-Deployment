@@ -1,3 +1,11 @@
+"""Heuristic sanity check for the API test suite.
+
+Given a directory of test files, this script inspects the source of each test
+function and reports whether the GET and POST endpoints are covered for both
+the response code and the response body, and whether both possible model
+inferences are tested. It prompts for the path to the test file interactively.
+"""
+
 from os import path
 
 import argparse
@@ -11,8 +19,15 @@ OK_COLOR = '\033[92m'
 WARN_COLOR = '\033[93m'
 
 def run_sanity_check(test_dir):
+    """Run the sanity check against the test file chosen at the prompt.
 
-    #assert path.isdir(test_dir), FAIL_COLOR+f"No direcotry named {test_dir} found in {os.getcwd()}"
+    Parameters
+    ----------
+    test_dir : str
+        Directory hint shown for reference; the actual test file path is read
+        interactively.
+    """
+
     print('This script will perform a sanity test to ensure your code meets the criteria in the rubric.\n')
     print('Please enter the path to the file that contains your test cases for the GET() and POST() methods')
     print('The path should be something like abc/def/test_xyz.py')

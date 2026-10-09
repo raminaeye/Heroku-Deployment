@@ -6,12 +6,11 @@ This model card describes a model that was trained as a part of Udacity's fourth
 ## Model Details
 
 Ramin Anushiravani created the model. It is a feedforward neural network model trained using tensorflow framework.
-It has 4 layers with 512, 256, 128, and 128 neurons using relu activationcand two dropout layers for regularization. This model has been put in to dvc pipeline as well.
-See dvc.yaml and params.yaml for final hyperparameters and different experiment results.
+It has 4 layers with 512, 256, 256, and 128 neurons using relu activation and two dropout layers for regularization. The hyperparameters live in params.yaml.
 Before the first layers, a batch normalization layer is added.
 A softmax layer with 2 neurons was added to the end to match the shape of labels, a binary classifier.
 
-It was trained using Adam's optimizer with a learning rate of 4e-4 for 10 epochs with batch size of 16.
+It was trained using Adam's optimizer with a learning rate of 4e-4 for 10 epochs with batch size of 32.
 
 The model has been unit tested for its input and output data shapes.
 
@@ -61,4 +60,4 @@ This model is trained to predict if a person's salary is below or above $50k.
 
 ## Caveats and Recommendations
 
-    It is important to note that this model should not be deployed in production or even considered for making decisions about giving someone a loans. The dataset this model was trained is biased, as discussed under Ethical Considerations/Dataset. This model is more likely to make a decision for a person of White race. Given how correlated the labels in the datasets are, removing race from the dataset would not solve this problem as this feature may have very well been bleed into other features. For more detailed analysis of the model see "testLog.log"
+    It is important to note that this model should not be deployed in production or even considered for making decisions about giving someone a loans. The dataset this model was trained is biased, as discussed under Ethical Considerations/Dataset. This model is more likely to make a decision for a person of White race. Given how correlated the labels in the datasets are, removing race from the dataset would not solve this problem as this feature may have very well been bleed into other features. For more detailed analysis of the model see "slice_output.txt", which holds the slice evaluation log.

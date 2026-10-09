@@ -1,3 +1,9 @@
+"""Data preprocessing for the census salary prediction pipeline.
+
+Wraps scikit-learn's OneHotEncoder (categorical features) and LabelBinarizer
+(labels) so training and inference share one code path.
+"""
+
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 

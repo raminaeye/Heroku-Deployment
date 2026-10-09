@@ -1,3 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+*.log
+# macOS
+.DS_Store
 ./.dvc/cache/3c/87be7ede6dd0df270ab13d269abc66
 ./.dvc/cache/9c/8363ddb215280a47b2b0f4eb6145bb
 ./.dvc/cache/ed/5dd964845a0f3a017551718ac32faa
